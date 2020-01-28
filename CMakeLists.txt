@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.10)
 project(Boost-CMake)
 
 option(BOOST_DISABLE_TESTS "Do not build test targets, even if building standalone" OFF)
@@ -11,25 +11,25 @@ set(BOOST_GIT_TAG "boost-1.69.0" CACHE STRING "Boost Git tag or branch name")
 
 include(FetchContent)
 
-if(BOOST_GIT)
-  FetchContent_Declare(
-    Boost
-    GIT_REPOSITORY "${BOOST_GIT_URL}"
-    GIT_TAG "${BOOST_GIT_TAG}"
-  )
-else()
-  FetchContent_Declare(
-    Boost
-    URL ${BOOST_URL}
-    URL_HASH SHA256=${BOOST_URL_SHA256}
-  )
-endif()
-FetchContent_GetProperties(Boost)
+# if(BOOST_GIT)
+#   FetchContent_Declare(
+#     Boost
+#     GIT_REPOSITORY "${BOOST_GIT_URL}"
+#     GIT_TAG "${BOOST_GIT_TAG}"
+#   )
+# else()
+#   FetchContent_Declare(
+#     Boost
+#     URL ${BOOST_URL}
+#     URL_HASH SHA256=${BOOST_URL_SHA256}
+#   )
+# endif()
+# FetchContent_GetProperties(Boost)
 
-if(NOT Boost_POPULATED)
-  FetchContent_Populate(Boost)
-  set(BOOST_SOURCE ${boost_SOURCE_DIR})
-endif()
+# if(NOT Boost_POPULATED)
+#   FetchContent_Populate(Boost)
+#   set(BOOST_SOURCE ${boost_SOURCE_DIR})
+# endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules)
 include(CheckBoostVersion)
