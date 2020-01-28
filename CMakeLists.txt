@@ -9,8 +9,7 @@ set(BOOST_URL_SHA256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648
 set(BOOST_GIT_URL "https://github.com/boostorg/boost.git" CACHE STRING "Boost Git URL to top-level repository")
 set(BOOST_GIT_TAG "boost-1.69.0" CACHE STRING "Boost Git tag or branch name")
 
-include(FetchContent)
-
+# include(FetchContent)
 # if(BOOST_GIT)
 #   FetchContent_Declare(
 #     Boost
